@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="css/cook.css" />
+<title>Chinese Food</title>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+<script type="text/javascript">
+var x = 0;
+var y = 0;
+window.setInterval(function(){
+	var div = $("#header");
+	y=y-0.3;
+	div.css("background-position",x+"px "+y+"px");
+},1);
+</script>
+
+</head>
+
+<body>
+<div id="header">
+<table id="t1">
+	<tr>
+    	<td><img src="pictures/logo.png" id="hpic" /></td>
+		<td><h1 id="ca">Culinary Art</h1></td>
+    </tr>
+</table>
+<DIV id="topnav" style="float:left; width:100%; height:40px; word-spacing:10px; font-size:25px; padding-left:17%; padding-bottom:0px;  margin-left:0%; font-family:'Comic Sans MS', cursive; margin-top:10%;">
+<NAV>
+<A href="cook.html" class="nav">Home</A> |
+<A href="Chinese.html" class="nav">Chinese Food</A> |
+<A href="Indian.html" class="nav">Indian Food</A> |
+<A href="Western.html" class="nav">Western Food</A> |
+<A href="Contact.html" class="nav">Contact Us</A> 
+</NAV>
+</DIV>
+</div>
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $("#su").leanModal({top:200,opacity:0.5});
+	$("#lo").leanModal({top:200,opacity:0.5});
+});
+</script>
+<div id="cfood" class="row">
+<style type="text/css">
+.descTable{
+	margin: 20px auto;
+	width: 80%;
+}
+.descTable td{
+	text-align: center;
+	vertical-align: center;
+	color:#666;
+	padding-bottom: 10px;
+}
+.descTable a{
+	font-size: 28px;
+	font-weight: bolder;
+	color:#CCC;
+	text-decoration: none;
+}
+</style>
+<table align="center" id="cf" class="descTable">
+	<tr>
+		<td><a href="dongporou.html"><img src="pictures/dongporou.jpg" height="300" width="400" 
+        style="border-radius:80px;" /></a></td>
+		<td><a href="duojiaoyutou.html"><img src="pictures/duojiaoyutou.jpg" height="300" width="400" 
+        style="border-radius:80px;" /></a></td>
+	</tr>
+	<tr>
+		<td><a href="dongporou.html">Dongpo Pork</a></td>
+		<td><a href="duojiaoyutou.html">Chopping Pepper With Fish Head</a></td>
+	</tr>
+<tr>
+<td>Dongpo Pork also named Pork braised in brown sauce,Roll meat，Braised pork in 
+Dongpo sauce.It is a famous traditional dish in Jiangnan area</td>
+<td>Chopping Pepper With Fish Head is a famous traditional dish of Hunan 
+Province, belonging to Hunan cuisine.It is said that the origin is related to 
+Huang Zongxian, a scholar in Qing Dynasty</td>
+</tr>
+<tr>
+<td><a href="dongbaojiding.html"><img src="pictures/gongbaojiding.jpg" height="300" width="400" 
+style="border-radius:80px;" /></a></td>
+<td><a href="tangculiyu.html"><img src="pictures/tangculiyu.jpg" height="300" width="400" 
+style="border-radius:80px;" /></a></td>
+</tr>
+<tr>
+<td><a href="dongbaojiding.html">Kung Pao Chichen</a></td>
+<td><a href="tangculiyu.html">Sweet And Sour Carp</a></td>
+</tr>
+<tr>
+<td>Kung Pao Chichen is a famous traditional specialty dish both 
+at home and abroad. It is also summed up as "Beijing court dishes"</td>
+<td>Sweet And Sour Carp is a famous traditional dish from Shandong, Ji'nan. It is one of the representative dishes of Shandong. It is said to have started in the Yellow River.</td>
+</tr>
+</table>
+</div>
+</html>

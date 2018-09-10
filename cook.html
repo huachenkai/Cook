@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="css/cook.css" />
+<title>Home</title>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+<script src="Galleria/jquery-1.8.3.js"></script>
+<script src="Galleria/galleria/galleria-1.2.8.js"></script>
+<script type="text/javascript">
+var x = 0;
+var y = 0;
+window.setInterval(function(){
+	var div = $("body");
+	y=y-0.3;
+	div.css("background-position",x+"px "+y+"px");
+},1);
+</script>
+
+</head>
+
+<body style="background-color:#FFF" onload="showInfo()" id="q">
+<div id="header5">
+<div id="one" style="width:auto">
+<a href="#signupmodal" id="su" style="color:#600">SignUp</a>
+<a href="#loginmodal" id="lo" style="color:#600">Login</a>
+</div>
+<div>
+<marquee style="color:#FFF">Hello! <span id="sname"></span></marquee>
+</div>
+<table id="t1">
+	<tr>
+    	<td><img src="pictures/logo.png" id="hpic" /></td>
+		<td><h1 id="ca">Culinary Art</h1></td>
+    </tr>
+</table>
+<DIV id="topnav" style="float:left; width:100%; height:40px; word-spacing:10px; font-size:25px; padding-left:17%; padding-bottom:0px;  margin-left:0%; font-family:'Comic Sans MS', cursive; margin-top:5%;">
+<NAV>
+<A href="cook.html" class="nav">Home</A> |
+<A href="Chinese.html" class="nav">Chinese Food</A> |
+<A href="Indian.html" class="nav">Indian Food</A> |
+<A href="Western.html" class="nav">Western Food</A> |
+<A href="Contact.html" class="nav">Contact Us</A> 
+</NAV>
+</DIV>
+</div>
+<div id="signupmodal" style="display:none;" >
+<h1 align="center">Sign Up</h1>
+<form id="signup" method="post" action="cook.html">
+
+<label for="name">Name</label>
+<input type="text" name="name" id="name" class="c1" required="required" placeholder="Enter Your Name" maxlength="10" />
+
+<label for="password">Password</label>
+<input type="password" name="password" id="password" class="c1" required="required" placeholder="Enter Your Password" maxlength="20"   onchange="value=value.replace(/[^\d]/g,'')" />
+
+<label for="cpassword">Confirm Password</label>
+<input type="password" name="cpassword" id="cpassword" class="c1" required="required" placeholder="Write Your Password again" maxlength="20" onchange="value=value.replace(/[^\d]/g,'')" />
+
+<label for="tel">Telephone</label>
+<input type="text" name="tel" id="tel" class="c1" required="required" pattern="[0-9]{11}"/>
+
+<label for="email">Email</label>
+<input type="email" name="email" id="email" class="c1" required="required" />
+
+<label for="birth">Birthday</label>
+<input type="date" name="birth" id="birth" class="c1" required="required" />
+
+<input type="submit"  name="signupbt" id="signupbt" value="Sign Up"/>
+<input type="reset" name="signupbtn" id="signupbtn" value="Cancel" />
+</form>
+</div>
+
+<div id="loginmodal" style="display:none">
+<h1 align="center">Login</h1>
+<form id="login" method="post" action="cook.html">
+
+<label for="name">Name</label>
+<input type="text" name="name" id="lname" class="c2" required="required" />
+
+<label for="password">Password</label>
+<input type="password" name="password" id="lpassword" class="c2" required="required" />
+
+<input type="submit" name="loginbt" id="loginbt" value="Login" onclick="loginup();" />
+<input type="reset" name="loginbtn" id="loginbtn" value="Cancel" />
+</form>
+</div>
+<script type="text/javascript">
+var iuser;
+$('#cpassword').change(checkPasswords);
+function checkPasswords() {
+	var upass= $("#password").val();	
+	var upass2= $("#cpassword").val();        
+	if(!upass2 || upass2.length < password.length)
+	{
+		return;
+	}	 
+	if (upass != upass2){
+	    alert("Please check the password, it doesn't match!");
+	    document.getElementById("cpassword").focus();
+	    return;
+	}
+}
+$(document).ready(function(e) {
+    $("#signupbt").click(function(e) {
+	if(typeof(Storage)==undefined)
+	{
+		alert("Storage Not Supported");
+	}else
+	{
+		var uname=document.getElementById("name").value;
+		var upass=document.getElementById("password").value;
+	    var utel=document.getElementById("tel").value;
+	    var uemail=document.getElementById("email").value;
+		var ubirth=document.getElementById("birth").value;
+	    localStorage.setItem("name",uname);
+		localStorage.setItem("password",upass);
+	    localStorage.setItem("tel",utel);
+	    localStorage.setItem("email",uemail);
+		localStorage.setItem("birth",ubirth);
+	    alert("Welcome to be a member of us !");
+	}
+	});
+});
+
+$(document).ready(function(e) {
+    $("#loginbt").click(function(e) {
+		var ename=login.lname.value;
+		var dname=localStorage.getItem("name");
+		var epass=login.lpassword.value;
+		var dpass=localStorage.getItem("password");
+	if((ename!=dname)||(epass!=dpass))
+	{
+		alert("You haven't REGISTERED!");
+	}
+	else
+	{
+		localStorage.getItem("name");
+		localStorage.getItem("password");
+	    alert("Hello!");		
+	}
+	});
+});
+
+function showInfo(){
+	//need the key
+	var sname=localStorage.getItem("name");
+	document.getElementById("sname").innerHTML=sname;
+}
+	
+$(document).ready(function(e) {
+    $("#su").leanModal({top:100,opacity:0.5});
+	$("#lo").leanModal({top:100,opacity:0.5});
+});
+</script>
+
+<DIV style="width: 960px; height: auto; position: relative; padding-left: 29px; overflow: hidden; background-color: black; margin:auto;">
+			   <div id="gallery">
+			   <img src="Galleria/images/IMG_6426.JPG"/>    
+               <img src="Galleria/images/IMG_6427.JPG" />
+               <img src="Galleria/images/IMG_6429.JPG" />     
+               <img src="Galleria/images/IMG_6430.JPG" />
+               <img src="Galleria/images/IMG_6431.JPG" />
+               <img src="Galleria/images/IMG_6432.JPG" /> 
+               <img src="Galleria/images/IMG_6434.JPG" />
+               <img src="Galleria/images/IMG_6435.JPG" />     
+               <img src="Galleria/images/IMG_6436.JPG" />
+               <img src="Galleria/images/IMG_6437.JPG" />
+               <img src="Galleria/images/IMG_6438.JPG" /> 
+               <img src="Galleria/images/IMG_6439.JPG" />     
+               <img src="Galleria/images/IMG_6440.JPG" />
+               <img src="Galleria/images/IMG_6441.JPG" /> 
+			   </div>
+</DIV>
+<div id="lastone">
+<style type="text/css">
+.last1{
+	margin: 20px auto;
+	width: 80%;
+}
+.last1 td{
+	text-align: center;
+	vertical-align: center;
+	color:#666;
+	padding-bottom:10px;
+}
+.last1 a{
+	font-size: 8px;
+	font-weight: bolder;
+	color:#CCC;
+	text-decoration: none;
+}
+.last2{
+	font-size:20px;
+}
+</style>
+<table cellspacing="0" id="last" class="last1">
+  <tr class="last2">
+    <td width="400">Popular</td>
+    <td width="400">Tasty</td>
+    <td width="400">ContactUs</td>
+    
+  </tr>
+  <tr>
+    <td><a href="dongbaojiding.html" style="font-family:'Comic Sans MS', cursive">Kong Pao Chichen</a></td>
+    <td><a href="dongporou.html">Dongpo Pork</a></td>
+    <td><img src="pictures/IMG_6392.JPG" width="25" height="25"/>Telephone:17897788899</td>
+  </tr>
+  <tr>
+    <td><a href="India Curry Wings.html">India Curry Wings</a></td>
+    <td><a href="Curry Meatballs Soup.html">Curry Meatballs Soup</a></td>
+    <td><img src="pictures/IMG_6393.JPG" width="25" height="25" />Microblog:Flying pig!</td>
+  </tr>
+  <tr>
+    <td><a href="Pasta.html">Pasta</a></td>
+    <td><a href="Steak.html">Steak</a></td>
+    <td><img src="pictures/IMG_6400.JPG" width="25" height="25" />QQ Number:88888888</td>
+  </tr>
+</table>
+</div>
+<script type="text/javascript">
+Galleria.loadTheme('Galleria/galleria/themes/classic//galleria.classic.min.js');
+$("#gallery").galleria({
+	width:950,
+	height:400
+});
+</script>
+
+</body>
+</html>

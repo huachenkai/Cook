@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/cook.css" />
+<title>Contact</title>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+<script type="text/javascript">
+var x = 0;
+var y = 0;
+window.setInterval(function(){
+	var div = $("#header");
+	y=y-0.3;
+	div.css("background-position",x+"px "+y+"px");
+},1);
+</script>
+
+</head>
+
+<body>
+<div id="header">
+<table id="t1">
+	<tr>
+    	<td><img src="pictures/logo.png" id="hpic" /></td>
+		<td><h1 id="ca">Culinary Art</h1></td>
+    </tr>
+</table>
+<DIV id="topnav" style="float:left; width:100%; height:40px; word-spacing:10px; font-size:25px; padding-left:17%; padding-bottom:0px;  margin-left:0%; font-family:'Comic Sans MS', cursive; margin-top:10%;">
+<NAV>
+<A href="cook.html" class="nav">Home</A> |
+<A href="Chinese.html" class="nav">Chinese Food</A> |
+<A href="Indian.html" class="nav">Indian Food</A> |
+<A href="Western.html" class="nav">Western Food</A> |
+<A href="Contact.html" class="nav">Contact Us</A> 
+</NAV>
+</DIV>
+</div>
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $("#su").leanModal({top:200,opacity:0.5});
+	$("#lo").leanModal({top:200,opacity:0.5});
+});
+</script>
+<h2 style="font-family:'Comic Sans MS', cursive; font-size:35px; text-align:center;">Contact</h2>
+<div class="conif" align="center">
+<p>Your recipe is at a click away. Choose your favorite recipe and cooking with Culianry Art. Enjoy flavors with Culianry Art.</p>
+</div>
+ <div class="contact" style="width:800px; margin:auto">
+  <h2>Write me a letter</h2>
+      <form id="contactForm">  
+          <div class="left" >
+          <p>Name</p>
+          <input class="leftline" id="sname" type="text">
+          </div>
+          <div class="right">
+          <p>E-mail</p>
+          <input class="rightline" id="semail" type="text">
+          </div>
+          <div class="center">
+          <p>Message</p>
+          <textarea class="centerline" id="smessage" cols="10" rows="10"></textarea>
+          </div>
+      
+      <input id="sendbt" class="button" type="submit" value="YES I'M SURE"  onclick="submitcontact()">
+      </form>
+  
+<script type="text/javascript">
+ $(document).ready(function(e) {
+    $("#sendbt").click(function(e) {
+		if(typeof(Storage)==undefined)
+		{
+        alert("Storage Not Supported");
+	}
+	else
+	{
+		var uname=document.getElementById("sname").value;
+		var uemail=document.getElementById("semail").value;
+		var umessage=document.getElementById("smessage").value;
+		localStorage.setItem("sname",uname);
+		localStorage.setItem("semail",uemail);
+		localStorage.setItem("smessage",umessage);
+		alert("Thanks for your advise!");
+	}
+    });
+});
+  </script>
+  </div>  
+<div  >
+<marquee scrollamount="15" width="1000" height="50" style="font-family:'Comic Sans MS', cursive"><img src="pictures/IMG_6452.PNG" width="50" height="50"/>Henry:It's delicious This webpage is useful</marquee>
+<marquee scrollamount="25" width="1300" height="50" style="margin-right:500px; font-family:'Comic Sans MS', cursive"><img src="pictures/IMG_6462.PNG" width="50" height="50"/>Sam:Perfect! I can't wait to sign up</marquee>
+<marquee scrollamount="18" width="1100" height="50" style="font-family:'Comic Sans MS', cursive"><img src="pictures/IMG_6461.PNG" width="50" height="50"/>Chris:I like the Chinese best!</marquee>
+<marquee scrollamount="20" width="1000" height="50" style="font-family:'Comic Sans MS', cursive"><img src="pictures/IMG_6460.PNG" width="50" height="50" />Tereza:I think all kinds of food have their own style!</marquee>
+<marquee scrollamount="15"  height="50" style="font-family:'Comic Sans MS', cursive"><img src="pictures/IMG_6454.PNG" width="50" height="50" />RT:I love both Indian food and Chinese food! It's worth mentioning "Baozi" "fried noodles""fried rice" and so on!!</marquee>
+</div>
+</body>
+</html>

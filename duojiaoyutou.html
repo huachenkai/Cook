@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="css/cook.css" />
+<title>Home</title>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
+<script src="Galleria/jquery-1.8.3.js"></script>
+<script src="Galleria/galleria/galleria-1.2.8.js"></script>
+<script type="text/javascript">
+var x = 0;
+var y = 0;
+window.setInterval(function(){
+	var div = $("#header");
+	y=y-0.3;
+	div.css("background-position",x+"px "+y+"px");
+},1);
+</script>
+<script>
+jQuery(document).ready(function(e) {
+	$(".heading").click(function(){
+	$("#menu li ul").slideToggle("slow");
+	});
+});
+</script>
+</head>
+
+<body style="background-color:#FFF" onload="showInfo()" >
+<div id="header">
+<table id="t1">
+	<tr>
+    	<td><img src="pictures/logo.png" id="hpic" /></td>
+		<td><h1 id="ca">Culinary Art</h1></td>
+    </tr>
+</table>
+<DIV id="topnav" style="float:left; width:100%; height:40px; word-spacing:10px; font-size:25px; padding-left:17%; padding-bottom:0px;  margin-left:0%; font-family:'Comic Sans MS', cursive; margin-top:10%;">
+<NAV>
+<A href="cook.html" class="nav">Home</A> |
+<A href="Chinese.html" class="nav" id="jump">Chinese Food</A> |
+<A href="Indian.html" class="nav" id="jump">Indian Food</A> |
+<A href="Western.html" class="nav" id="jump">Western Food</A> |
+<A href="Contact.html" class="nav">Contact Us</A> 
+</NAV>
+</DIV>
+</div>
+<script type="text/javascript">
+var iuser;
+$('#cpassword').change(checkPasswords);
+function checkPasswords() {
+	var upass= $("#password").val();	
+	var upass2= $("#cpassword").val();        
+	if(!upass2 || upass2.length < password.length)
+	{
+		return;
+	}	 
+	if (upass != upass2){
+	    alert("Please check the password, it doesn't match!");
+	    document.getElementById("cpassword").focus();
+	    return;
+	}
+}
+$(document).ready(function(e) {
+    $("#signupbt").click(function(e) {
+	if(typeof(Storage)==undefined)
+	{
+		alert("Storage Not Supported");
+	}
+	else
+	{
+		var uname=document.getElementById("name").value;
+		var upass=document.getElementById("password").value;
+		var upass2=document.getElementById("cpassword").value;
+	    var utel=document.getElementById("tel").value;
+	    var uemail=document.getElementById("email").value;
+		var ubirth=document.getElementById("birth").value;
+	    localStorage.setItem("name",uname);
+		localStorage.setItem("password",upass);
+		localStorage.setItem("cpassword",upass2);
+	    localStorage.setItem("tel",utel);
+	    localStorage.setItem("email",uemail);
+		localStorage.setItem("birth",ubirth);
+	    alert("Welcome to be a member of us !");
+	}
+	});
+});
+$(document).ready(function(e) {
+    $("#loginbt").click(function(e) {
+		var ename=login.lname.value;
+		var dname=localStorage.getItem("name");
+		var epass=login.lpassword.value;
+		var dpass=localStorage.getItem("password");
+	if((ename!=dname)&&(epass!=dpass) )
+	{
+		alert("You haven't REGISTERED!");
+	}
+	else
+	{
+		localStorage.getItem(name);
+		localStorage.getItem(password);
+	    alert("Hello!");		
+	}
+	});
+});		
+function showInfo(){
+	//need the key
+	var sname=localStorage.getItem("name");
+	document.getElementById("sname").innerHTML=sname;
+}
+$(document).ready(function(e) {
+    $("#su").leanModal({top:110,opacity:0.5,overlay: 0.9,closeButton: ".hidemodal"});
+	$("#lo").leanModal({top:110,opacity:0.5,overlay: 0.9,closeButton: ".hidemodal"});
+});
+</script>
+<div id="chinese">
+<div id="navsteak">
+<center><h4>Chopping Pepper With Fish Head</h4></center>
+<ul id="menu">
+<li class="heading"><a>Dish's Materials</a></li>
+<li>
+   <ul style="display: none;">
+        <li><a herf=""><p id="col">Fish head    one</p></a></li>
+        <li><a herf=""><p id="col">Green pepper    150g</p></a></li>
+        <li><a herf=""><p id="col">Green Chinese onion    one</p></a></li>
+        <li><a herf=""><p id="col">Spirit    30g</p></a></li>
+        <li><a herf=""><p id="col">Pepper    15g</p></a></li>
+        <li><a herf=""><p id="col">Vinegar    450g</p></a></li>
+        <li><a herf=""><p id="col">ginger    50g</p></a></li>
+        <li><a herf=""><p id="col">rum    20ml</p></a></li>
+   </ul>
+</li>
+<li class="heading"><a>Dish's Information</a></li>
+<li>
+<ul style="display: none;">
+<li><a herf=""><p id="col">Difficulty: Normal</p></a></li>
+<li><a herf=""><p id="col">Time: A few hours</p></a></li>
+<li><a herf=""><p id="col">Taste: Fragrant and spicy</p></a></li>
+<li><a herf=""><p id="col">Technology: Boil</p></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<table width="200" border="0" id="tablesteak">
+  <tr>
+    <td><img src="pictures/剁椒鱼头1.jpg" width="256" height="244" style="padding:25px; border-radius:10px;"></td>
+    <td><img src="pictures/剁椒鱼头2.jpg" width="256" height="244" style="padding:25px;"></td><td><img src="pictures/剁椒鱼头3.jpg" width="256" height="244" style="padding:25px;"></td>
+  </tr>
+  <tr>
+    <td valign="top"><p style="color:#000; font-family:&#39;Comic Sans MS&#39;, cursive; font-size:24px; ">First Step:<br></p>
+    <p style="color:#000; font-size:20px; padding:25px;font-family:&#39;Comic Sans MS&#39;, cursive;">Material drawing.</p></td>
+    <td valign="top"><p style="color:#000; font-family:&#39;Comic Sans MS&#39;, cursive; font-size:24px;">Second Step:<br></p>
+    <p style="color:#000; font-size:20px; padding:25px;font-family:&#39;Comic Sans MS&#39;, cursive;">Onions, ginger, garlic, chopped spare.</p></td>
+    
+    
+    
+    
+    <td valign="top"><p style="color:#000; font-family:&#39;Comic Sans MS&#39;, cursive; font-size:24px;">Third Step:<br></p>
+    <p style="color:#000; font-size:20px; padding:25px; font-family:&#39;Comic Sans MS&#39;, cursive;">Wok pour hot oil, add chopped pepper stir fry. .</p></td>
+  </tr>
+  <tr>
+    <td><img src="pictures/剁椒鱼头4.jpg" width="256" height="244" style="padding:25px; border-radius:10px;"></td>
+    <td><img src="pictures/剁椒鱼头5.jpg" width="256" height="244" style="padding:25px;"></td><td><img src="pictures/剁椒鱼头6.jpg" width="256" height="244" style="padding:25px;"></td>
+  </tr>
+  <tr>
+    <td valign="top"><p style="color:#000; font-family:&#39;Comic Sans MS&#39;, cursive; font-size:24px;">Forth Step:<br></p>
+    <p style="color:#000; font-size:20px; padding:25px; font-family:&#39;Comic Sans MS&#39;, cursive;">Add onion, ginger and garlic. Sugar, soy sauce and pepper seasoning. </p>
+    </td><td valign="top"><p style="color:#000; font-family:&#39;Comic Sans MS&#39;, cursive; font-size:24px;">Fifth Step:<br></p>
+    <p style="color:#000; font-size:20px; padding:25px; font-family:&#39;Comic Sans MS&#39;, cursive;">Stir fry small fry.</p>
+    </td><td valign="top"><p style="color:#000; font-family:&#39;Comic Sans MS&#39;, cursive; font-size:24px;">Sixth Step:<br></p>
+    <p style="color:#000; font-size:20px; padding:25px; font-family:&#39;Comic Sans MS&#39;, cursive;">Spread the fried ingredients on the head of the fish. After the water is boiled, time is ten minutes. Pepper oil, chili oil, heat, pour in the fish head, put parsley can. </p>
+  </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>
